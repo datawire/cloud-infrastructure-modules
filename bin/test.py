@@ -5,7 +5,7 @@ import shlex
 
 exclude = set(['.idea', '.git', 'scripts'])
 
-for root, dirs, files in os.walk('.', topdown=True):
+for root, dirs, files in os.walk('modules', topdown=True):
     dirs[:] = [d for d in dirs if d not in exclude]
     for dir in dirs:
         path = os.path.join(root, dir)
