@@ -1,0 +1,21 @@
+---
+dist: trusty
+language: generic
+sudo: false
+
+env:
+  global:
+    - PATH="${HOME}/bin:${PATH}"
+    - TERRAFORM_VERSION=0.9.6
+
+cache:
+  pip: true
+
+before_install:
+  - mkdir ${HOME}/bin
+  - curl -fSL "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip" -o terraform.zip
+  - unzip terraform.zip -d ${HOME}/bin
+  - rm -f terraform.zip
+
+script:
+  - make test
