@@ -1,0 +1,21 @@
+---
+source: github.com/datawire/loom-config//modules/rds-postgresql-standalone-v1
+variables: 
+  vpc_id:
+    type: string
+    required: true
+    value: "{module.external_services_network.vpc_id}"
+  
+  subnets:
+    type: list
+    required: true
+    value: ["${module.external_services_network.internal_subnets}"]
+    
+  security_groups:
+    type: list
+    required: true
+    value: ["${module.external_services_network.main_security_group}"]
+    
+  db_name:
+    type: string
+    required: false
