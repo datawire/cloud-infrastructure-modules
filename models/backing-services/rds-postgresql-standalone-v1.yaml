@@ -1,4 +1,5 @@
 ---
+name: rds-postgresql-standalone-v1
 source: github.com/datawire/loom-config//modules/rds-postgresql-standalone-v1
 variables: 
   vpc_id:
